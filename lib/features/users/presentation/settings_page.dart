@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../core/theme/app_palette.dart';
 
 class SettingsPage extends ConsumerWidget {
@@ -18,10 +19,12 @@ class SettingsPage extends ConsumerWidget {
           Text('Appearance', style: textTheme.headlineMedium),
           const SizedBox(height: 8),
           SwitchListTile(
-            title: const Text('Dark Mode (Cinema Red)'),
-            value: themeMode == AppThemeMode.cinemaRed,
+            title: const Text('Dark mode (Violet cinema)'),
+            value: themeMode == AppThemeMode.cinemaViolet,
             onChanged: (val) {
-              ref.read(appThemeModeProvider.notifier).state = val ? AppThemeMode.cinemaRed : AppThemeMode.light;
+              ref.read(appThemeModeProvider.notifier).state = val
+                  ? AppThemeMode.cinemaViolet
+                  : AppThemeMode.light;
             },
           ),
           const Divider(height: 32),

@@ -228,7 +228,7 @@ class _ExploreMoviesPageState extends ConsumerState<ExploreMoviesPage> {
                             Text(
                               '${movies.length} movies',
                               style: textTheme.labelLarge?.copyWith(
-                                color: colorScheme.primary,
+                                color: colorScheme.secondary,
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -652,7 +652,7 @@ class _MovieFiltersSheetState extends ConsumerState<MovieFiltersSheet> {
                       ? 'Any rating'
                       : '${_minRating.toStringAsFixed(1)}+',
                   style: textTheme.labelLarge?.copyWith(
-                    color: colorScheme.primary,
+                    color: colorScheme.secondary,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -727,7 +727,7 @@ class _ActorSuggestionTile extends StatelessWidget {
                   '/t/p/w185${profilePath.startsWith('/') ? profilePath : '/$profilePath'}',
                 ).toString(),
               ),
-        child: Icon(Icons.person_rounded, color: colorScheme.primary),
+        child: Icon(Icons.person_rounded, color: colorScheme.secondary),
       ),
       title: Text(actor.name, maxLines: 1, overflow: TextOverflow.ellipsis),
       subtitle: actor.knownForDepartment == null

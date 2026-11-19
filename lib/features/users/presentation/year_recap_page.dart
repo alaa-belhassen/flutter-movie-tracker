@@ -157,7 +157,7 @@ class _YearRecapPageState extends ConsumerState<YearRecapPage> {
                             borderRadius: BorderRadius.circular(8),
                             child: LinearProgressIndicator(
                               value: (_currentPage + 1) / slides.length,
-                              color: colorScheme.primary,
+                              color: colorScheme.secondary,
                               minHeight: 5,
                             ),
                           ),
@@ -270,7 +270,7 @@ class _YearRecapPageState extends ConsumerState<YearRecapPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 80, color: colorScheme.primary),
+          Icon(icon, size: 80, color: colorScheme.secondary),
           const SizedBox(height: 32),
           Text(
             title,

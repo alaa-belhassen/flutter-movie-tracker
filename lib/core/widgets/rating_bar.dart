@@ -5,7 +5,12 @@ class RatingBar extends StatelessWidget {
   final ValueChanged<double>? onRatingChanged;
   final double size;
 
-  const RatingBar({super.key, required this.rating, this.onRatingChanged, this.size = 28});
+  const RatingBar({
+    super.key,
+    required this.rating,
+    this.onRatingChanged,
+    this.size = 28,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +22,14 @@ class RatingBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             InkWell(
-              onTap: onRatingChanged != null ? () => onRatingChanged!(index + 0.5) : null,
+              onTap: onRatingChanged != null
+                  ? () => onRatingChanged!(index + 0.5)
+                  : null,
               child: Icon(
-                rating >= index + 0.5 ? (rating >= index + 1 ? Icons.star : Icons.star_half) : Icons.star_border,
-                color: colorScheme.primary,
+                rating >= index + 0.5
+                    ? (rating >= index + 1 ? Icons.star : Icons.star_half)
+                    : Icons.star_border,
+                color: colorScheme.secondary,
                 size: size,
               ),
             ),

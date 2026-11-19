@@ -268,7 +268,7 @@ class _ProfileActionTile extends StatelessWidget {
             color: colors.primary.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(14),
           ),
-          child: Icon(icon, color: colors.primary),
+          child: Icon(icon, color: colors.secondary),
         ),
         title: Text(title),
         subtitle: Text(subtitle, maxLines: 2),

@@ -42,7 +42,7 @@ class StatsDashboardPage extends ConsumerWidget {
                 Icon(
                   Icons.analytics_outlined,
                   size: 48,
-                  color: theme.colorScheme.primary,
+                  color: theme.colorScheme.secondary,
                 ),
                 const SizedBox(height: 12),
                 Text(
@@ -124,13 +124,13 @@ class StatsDashboardPage extends ConsumerWidget {
                           label: 'Movies watched',
                           value: '$moviesWatched',
                           icon: Icons.movie_outlined,
-                          accent: theme.colorScheme.primary,
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'Total viewings',
                           value: '$viewings',
                           icon: Icons.visibility_outlined,
-                          accent: const Color(0xFF54C6A8),
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'Average rating',
@@ -138,31 +138,31 @@ class StatsDashboardPage extends ConsumerWidget {
                               ? '—'
                               : averageRating.toStringAsFixed(1),
                           icon: Icons.star_rounded,
-                          accent: const Color(0xFFFFC857),
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'Reviews',
                           value: '$reviews',
                           icon: Icons.rate_review_outlined,
-                          accent: const Color(0xFF9A8CFF),
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'Favorites',
                           value: '$favorites',
                           icon: Icons.favorite_border_rounded,
-                          accent: const Color(0xFFFF7185),
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'To watch',
                           value: '$watchlist',
                           icon: Icons.bookmark_border_rounded,
-                          accent: const Color(0xFF68A7FF),
+                          accent: theme.colorScheme.secondary,
                         ),
                         _MetricCard(
                           label: 'Actors followed',
                           value: '$followedActors',
                           icon: Icons.people_outline_rounded,
-                          accent: const Color(0xFF64C8D7),
+                          accent: theme.colorScheme.secondary,
                         ),
                       ],
                     );
@@ -268,12 +268,19 @@ class _DashboardHero extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(26),
+        borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [colors.primary, colors.primary.withValues(alpha: 0.66)],
+          colors: [
+            colors.surface,
+            Color.alphaBlend(
+              colors.secondary.withValues(alpha: 0.2),
+              colors.surface,
+            ),
+          ],
         ),
+        border: Border.all(color: colors.outlineVariant),
       ),
       child: Row(
         children: [
@@ -284,7 +291,7 @@ class _DashboardHero extends StatelessWidget {
                 Text(
                   'YOUR CINEMA JOURNEY',
                   style: textTheme.labelSmall?.copyWith(
-                    color: colors.onPrimary.withValues(alpha: 0.78),
+                    color: colors.secondary,
                     letterSpacing: 1.4,
                     fontWeight: FontWeight.w700,
                   ),
@@ -295,7 +302,7 @@ class _DashboardHero extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: textTheme.headlineSmall?.copyWith(
-                    color: colors.onPrimary,
+                    color: colors.onSurface,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -305,18 +312,14 @@ class _DashboardHero extends StatelessWidget {
                       ? 'Start logging films to build your personal cinema story.'
                       : '$moviesWatched unique films across $viewings viewings.',
                   style: textTheme.bodyMedium?.copyWith(
-                    color: colors.onPrimary.withValues(alpha: 0.88),
+                    color: colors.onSurfaceVariant,
                   ),
                 ),
               ],
             ),
           ),
           const SizedBox(width: 10),
-          Icon(
-            Icons.local_movies_rounded,
-            size: 54,
-            color: colors.onPrimary.withValues(alpha: 0.86),
-          ),
+          Icon(Icons.local_movies_rounded, size: 54, color: colors.secondary),
         ],
       ),
     );
@@ -343,8 +346,8 @@ class _MetricCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: colors.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(20),
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: colors.outlineVariant.withValues(alpha: 0.6)),
       ),
       child: Column(
@@ -391,8 +394,8 @@ class _ActivityCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: colors.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(22),
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: colors.outlineVariant.withValues(alpha: 0.6)),
       ),
       child: Column(
@@ -451,7 +454,7 @@ class _ActivityCard extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: month.count == 0
                                     ? colors.surfaceContainerHighest
-                                    : colors.primary.withValues(
+                                    : colors.secondary.withValues(
                                         alpha:
                                             maxCount > 0 &&
                                                 month.count == maxCount
@@ -501,8 +504,8 @@ class _GenresCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: colors.surfaceContainerLow,
-        borderRadius: BorderRadius.circular(22),
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(16),
         border: Border.all(color: colors.outlineVariant.withValues(alpha: 0.6)),
       ),
       child: Column(
@@ -544,7 +547,7 @@ class _GenresCard extends StatelessWidget {
                       avatar: Icon(
                         Icons.local_movies_outlined,
                         size: 16,
-                        color: colors.primary,
+                        color: colors.secondary,
                       ),
                       label: Text(genre),
                       visualDensity: VisualDensity.compact,
@@ -580,7 +583,7 @@ class _QuickAction extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              Icon(icon, color: colors.primary),
+              Icon(icon, color: colors.secondary),
               const SizedBox(width: 10),
               Expanded(child: Text(title, maxLines: 1)),
               const Icon(Icons.chevron_right),

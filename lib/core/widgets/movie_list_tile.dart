@@ -58,7 +58,7 @@ class MovieListTile extends StatelessWidget {
             ? IconButton(
                 icon: Icon(
                   isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                  color: colorScheme.primary,
+                  color: colorScheme.secondary,
                 ),
                 onPressed: onBookmarkToggle,
               )

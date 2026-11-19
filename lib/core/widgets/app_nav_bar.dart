@@ -20,7 +20,7 @@ class AppNavBar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
             decoration: BoxDecoration(
               color: colorScheme.surface,
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(18),
               border: Border.all(color: colorScheme.outlineVariant),
               boxShadow: [
                 BoxShadow(
@@ -95,7 +95,7 @@ class AppNavBar extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(16),
               onTap: () => navigationShell.goBranch(
                 index,
                 initialLocation: index == navigationShell.currentIndex,
@@ -107,9 +107,9 @@ class AppNavBar extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? colorScheme.primary.withValues(alpha: 0.14)
+                      ? colorScheme.primary.withValues(alpha: 0.72)
                       : Colors.transparent,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -117,7 +117,7 @@ class AppNavBar extends StatelessWidget {
                     Icon(
                       isSelected ? iconFilled : iconOutlined,
                       color: isSelected
-                          ? colorScheme.primary
+                          ? colorScheme.onSurface
                           : colorScheme.onSurfaceVariant,
                       size: 21,
                     ),
@@ -129,7 +129,7 @@ class AppNavBar extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                         fontSize: 10,
                         color: isSelected
-                            ? colorScheme.primary
+                            ? colorScheme.onSurface
                             : colorScheme.onSurfaceVariant,
                         fontWeight: isSelected
                             ? FontWeight.w700

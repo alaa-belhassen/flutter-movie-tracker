@@ -196,12 +196,14 @@ final appRouterProvider = Provider<GoRouter>((ref) {
                   ),
                   GoRoute(
                     path: 'log/:movieId',
+                    parentNavigatorKey: _rootNavigatorKey,
                     builder: (context, state) => LogViewingPage(
                       movieId: state.pathParameters['movieId'],
                     ),
                   ),
                   GoRoute(
                     path: 'review/:movieId',
+                    parentNavigatorKey: _rootNavigatorKey,
                     builder: (context, state) => ReviewFormPage(
                       movieId: state.pathParameters['movieId']!,
                     ),

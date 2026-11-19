@@ -158,7 +158,7 @@ class JournalHomePage extends ConsumerWidget {
                           Icon(
                             Icons.local_movies_outlined,
                             size: 42,
-                            color: colorScheme.primary,
+                            color: colorScheme.secondary,
                           ),
                           const SizedBox(height: 12),
                           const Text(

@@ -5,7 +5,12 @@ class EmptyState extends StatelessWidget {
   final VoidCallback? onAction;
   final String? actionLabel;
 
-  const EmptyState({super.key, required this.message, this.onAction, this.actionLabel});
+  const EmptyState({
+    super.key,
+    required this.message,
+    this.onAction,
+    this.actionLabel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +23,13 @@ class EmptyState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.inbox, size: 64, color: colorScheme.primary),
+            Icon(Icons.inbox, size: 64, color: colorScheme.secondary),
             const SizedBox(height: 16),
-            Text(message, textAlign: TextAlign.center, style: textTheme.bodyLarge),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: textTheme.bodyLarge,
+            ),
             if (onAction != null && actionLabel != null) ...[
               const SizedBox(height: 16),
               FilledButton(onPressed: onAction, child: Text(actionLabel!)),

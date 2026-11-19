@@ -94,13 +94,13 @@ class _SignupProfilePageState extends ConsumerState<SignupProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            LinearProgressIndicator(value: 0.66, color: colorScheme.primary),
+            LinearProgressIndicator(value: 0.66, color: colorScheme.secondary),
             const SizedBox(height: 24),
             Center(
               child: Stack(
                 children: [
                   CustomPaint(
-                    painter: _DashedCirclePainter(color: colorScheme.primary),
+                    painter: _DashedCirclePainter(color: colorScheme.secondary),
                     child: const SizedBox(
                       width: 96,
                       height: 96,
@@ -119,7 +119,7 @@ class _SignupProfilePageState extends ConsumerState<SignupProfilePage> {
                 helperText: '2–32 characters; must be unique.',
                 prefixIcon: Icon(
                   Icons.person_outline,
-                  color: colorScheme.primary,
+                  color: colorScheme.secondary,
                 ),
               ),
             ),

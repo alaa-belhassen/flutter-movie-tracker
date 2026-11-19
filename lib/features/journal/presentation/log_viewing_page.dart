@@ -29,6 +29,7 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
   bool _isRewatch = false;
   bool _isSearching = false;
   bool _isSaving = false;
+  bool _isLoadingMovie = false;
   String? _error;
 
   @override
@@ -36,6 +37,7 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
     super.initState();
     final movieId = widget.movieId;
     if (movieId != null) {
+      _isLoadingMovie = true;
       WidgetsBinding.instance.addPostFrameCallback((_) => _loadMovie(movieId));
     }
   }
@@ -48,10 +50,18 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
       if (!mounted) return;
       setState(() {
         _selectedMovie = movie;
-        if (movie == null) _error = 'Movie not found.';
+        if (movie == null) {
+          _error = 'Movie not found. Search for it and choose it manually.';
+        } else {
+          _searchController.text = movie.title;
+          _results = const [];
+          _error = null;
+        }
       });
     } catch (error) {
       if (mounted) setState(() => _error = error.toString());
+    } finally {
+      if (mounted) setState(() => _isLoadingMovie = false);
     }
   }
 
@@ -150,6 +160,7 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
                 child: TextField(
                   controller: _searchController,
                   textInputAction: TextInputAction.search,
+                  enabled: !_isLoadingMovie,
                   onSubmitted: (_) => _search(),
                   decoration: const InputDecoration(
                     hintText: 'Search movies',
@@ -159,7 +170,7 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
               ),
               const SizedBox(width: 8),
               IconButton.filled(
-                onPressed: _isSearching ? null : _search,
+                onPressed: _isSearching || _isLoadingMovie ? null : _search,
                 icon: _isSearching
                     ? const SizedBox(
                         width: 18,
@@ -170,6 +181,15 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
               ),
             ],
           ),
+          if (_isLoadingMovie) ...[
+            const SizedBox(height: 12),
+            const LinearProgressIndicator(),
+            const SizedBox(height: 6),
+            Text(
+              'Loading the movie from your selection...',
+              style: textTheme.bodySmall,
+            ),
+          ],
           if (_selectedMovie case final movie?) ...[
             const SizedBox(height: 12),
             Card(
@@ -179,7 +199,11 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
                 subtitle: Text('${movie.year} · ${movie.genre}'),
                 trailing: IconButton(
                   tooltip: 'Choose another movie',
-                  onPressed: () => setState(() => _selectedMovie = null),
+                  onPressed: () => setState(() {
+                    _selectedMovie = null;
+                    _searchController.clear();
+                    _error = null;
+                  }),
                   icon: const Icon(Icons.close),
                 ),
               ),
@@ -196,6 +220,8 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
                   onTap: () => setState(() {
                     _selectedMovie = movie;
                     _results = const [];
+                    _searchController.text = movie.title;
+                    _error = null;
                   }),
                 ),
               ),
@@ -249,14 +275,18 @@ class _LogViewingPageState extends ConsumerState<LogViewingPage> {
           ],
           const SizedBox(height: 20),
           FilledButton(
-            onPressed: _isSaving ? null : _save,
+            onPressed: _isSaving || _isLoadingMovie || _selectedMovie == null
+                ? null
+                : _save,
             child: _isSaving
                 ? const SizedBox(
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Save to journal'),
+                : Text(
+                    _isLoadingMovie ? 'Loading movie...' : 'Save to journal',
+                  ),
           ),
         ],
       ),

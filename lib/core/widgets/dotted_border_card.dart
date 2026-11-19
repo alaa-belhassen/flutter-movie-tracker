@@ -14,11 +14,8 @@ class DottedBorderCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
       child: CustomPaint(
-        painter: _DottedBorderPainter(color: colorScheme.primary),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: child,
-        ),
+        painter: _DottedBorderPainter(color: colorScheme.secondary),
+        child: Padding(padding: const EdgeInsets.all(16), child: child),
       ),
     );
   }
@@ -37,10 +34,12 @@ class _DottedBorderPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     final path = Path()
-      ..addRRect(RRect.fromRectAndRadius(
-        Rect.fromLTWH(0, 0, size.width, size.height),
-        const Radius.circular(16),
-      ));
+      ..addRRect(
+        RRect.fromRectAndRadius(
+          Rect.fromLTWH(0, 0, size.width, size.height),
+          const Radius.circular(16),
+        ),
+      );
 
     const dashWidth = 6.0;
     const dashSpace = 4.0;

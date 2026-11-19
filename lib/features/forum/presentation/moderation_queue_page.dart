@@ -336,7 +336,7 @@ class _SectionHeading extends StatelessWidget {
     padding: const EdgeInsets.symmetric(vertical: 10),
     child: Row(
       children: [
-        Icon(icon, color: Theme.of(context).colorScheme.primary),
+        Icon(icon, color: Theme.of(context).colorScheme.secondary),
         const SizedBox(width: 8),
         Expanded(
           child: Text(title, style: Theme.of(context).textTheme.titleLarge),

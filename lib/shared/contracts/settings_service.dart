@@ -1,10 +1,10 @@
 class AppSettings {
-  final String themeMode; // 'cinemaRed' or 'light'
+  final String themeMode; // 'cinemaViolet' or 'light'
   final String language; // 'EN' or 'FR'
   final String country; // 'US', 'FR', etc.
 
   const AppSettings({
-    this.themeMode = 'cinemaRed',
+    this.themeMode = 'cinemaViolet',
     this.language = 'EN',
     this.country = 'US',
   });

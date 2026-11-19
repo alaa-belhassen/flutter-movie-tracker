@@ -32,10 +32,7 @@ class CatalogHomePage extends ConsumerWidget {
                 padding: const EdgeInsets.all(2),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(
-                    color: colorScheme.primary.withValues(alpha: 0.65),
-                    width: 1.5,
-                  ),
+                  border: Border.all(color: colorScheme.secondary, width: 1.5),
                 ),
                 child: AvatarCircle(
                   name: user?.nickname ?? 'Guest',
@@ -261,7 +258,7 @@ class CatalogHomePage extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(18),
                   border: Border.all(color: colorScheme.outlineVariant),
                 ),
-                child: Icon(icon, color: colorScheme.primary, size: 23),
+                child: Icon(icon, color: colorScheme.secondary, size: 23),
               ),
               const SizedBox(height: 8),
               Text(
@@ -306,7 +303,7 @@ class _TopBarAction extends StatelessWidget {
           height: 44,
           child: Tooltip(
             message: tooltip,
-            child: Icon(icon, size: 21, color: colorScheme.primary),
+            child: Icon(icon, size: 21, color: colorScheme.secondary),
           ),
         ),
       ),
@@ -488,7 +485,7 @@ class _SpotlightCarouselState extends State<_SpotlightCarousel> {
                 margin: const EdgeInsets.symmetric(horizontal: 3),
                 decoration: BoxDecoration(
                   color: isSelected
-                      ? colorScheme.primary
+                      ? colorScheme.secondary
                       : colorScheme.onSurfaceVariant.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -563,7 +560,7 @@ class _SpotlightBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 15, color: Colors.amberAccent),
+          Icon(icon, size: 15, color: Theme.of(context).colorScheme.secondary),
           const SizedBox(width: 5),
           Text(
             label,

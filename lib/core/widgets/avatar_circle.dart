@@ -10,7 +10,12 @@ class AvatarCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final initials = name.isNotEmpty
-        ? name.split(' ').take(2).map((e) => e.isNotEmpty ? e[0] : '').join().toUpperCase()
+        ? name
+              .split(' ')
+              .take(2)
+              .map((e) => e.isNotEmpty ? e[0] : '')
+              .join()
+              .toUpperCase()
         : 'U';
 
     return CircleAvatar(
@@ -19,7 +24,7 @@ class AvatarCircle extends StatelessWidget {
       child: Text(
         initials,
         style: TextStyle(
-          color: colorScheme.primary,
+          color: colorScheme.secondary,
           fontWeight: FontWeight.bold,
           fontSize: radius * 0.8,
         ),

@@ -20,8 +20,11 @@ class StatTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: isPrimary ? colorScheme.primary : colorScheme.surface,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(
+          color: isPrimary ? colorScheme.secondary : colorScheme.outlineVariant,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +33,7 @@ class StatTile extends StatelessWidget {
           Text(
             value,
             style: textTheme.headlineLarge?.copyWith(
-              color: isPrimary ? colorScheme.onPrimary : colorScheme.onSurface,
+              color: colorScheme.onSurface,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -38,7 +41,7 @@ class StatTile extends StatelessWidget {
           Text(
             label,
             style: textTheme.bodyMedium?.copyWith(
-              color: isPrimary ? colorScheme.onPrimary.withValues(alpha: 0.8) : colorScheme.onSurfaceVariant,
+              color: colorScheme.onSurfaceVariant,
             ),
           ),
         ],

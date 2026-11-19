@@ -69,7 +69,7 @@ class ForumHomePage extends ConsumerWidget {
                 padding: const EdgeInsets.all(24),
                 children: [
                   const SizedBox(height: 100),
-                  Icon(Icons.forum_outlined, size: 52, color: colors.primary),
+                  Icon(Icons.forum_outlined, size: 52, color: colors.secondary),
                   const SizedBox(height: 16),
                   Center(
                     child: Text(
@@ -103,7 +103,10 @@ class ForumHomePage extends ConsumerWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.forum_outlined, color: colors.primary),
+                              Icon(
+                                Icons.forum_outlined,
+                                color: colors.secondary,
+                              ),
                               const SizedBox(width: 10),
                               Expanded(
                                 child: Text(

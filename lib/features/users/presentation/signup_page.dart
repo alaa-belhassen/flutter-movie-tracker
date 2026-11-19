@@ -68,7 +68,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
               decoration: InputDecoration(
                 labelText: 'Email',
                 errorText: _emailError,
-                prefixIcon: Icon(Icons.email, color: colorScheme.primary),
+                prefixIcon: Icon(Icons.email, color: colorScheme.secondary),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
@@ -78,7 +78,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
               decoration: InputDecoration(
                 labelText: 'Password',
                 errorText: _passwordError,
-                prefixIcon: Icon(Icons.lock, color: colorScheme.primary),
+                prefixIcon: Icon(Icons.lock, color: colorScheme.secondary),
                 suffixIcon: IconButton(
                   icon: Icon(
                     _obscurePassword ? Icons.visibility : Icons.visibility_off,

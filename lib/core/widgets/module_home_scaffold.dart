@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'indicator_row.dart';
 
 class ModuleHomeScaffold extends StatelessWidget {
@@ -30,7 +31,7 @@ class ModuleHomeScaffold extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            Icon(icon, color: colorScheme.primary),
+            Icon(icon, color: colorScheme.secondary),
             const SizedBox(width: 8),
             Text(title),
           ],
@@ -41,7 +42,12 @@ class ModuleHomeScaffold extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(description, style: textTheme.bodyLarge?.copyWith(color: colorScheme.onSurfaceVariant)),
+            Text(
+              description,
+              style: textTheme.bodyLarge?.copyWith(
+                color: colorScheme.onSurfaceVariant,
+              ),
+            ),
             const SizedBox(height: 16),
             IndicatorRow(stats: indicators),
             const SizedBox(height: 24),

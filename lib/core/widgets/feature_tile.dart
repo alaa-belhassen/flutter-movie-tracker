@@ -28,7 +28,7 @@ class FeatureTile extends StatelessWidget {
             color: colorScheme.primary.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(14),
           ),
-          child: Icon(icon, color: colorScheme.primary, size: 21),
+          child: Icon(icon, color: colorScheme.secondary, size: 21),
         ),
         title: Text(
           title,

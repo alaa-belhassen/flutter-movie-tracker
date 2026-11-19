@@ -14,12 +14,12 @@ class RoleBadge extends StatelessWidget {
       decoration: BoxDecoration(
         color: colorScheme.primary.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: colorScheme.primary),
+        border: Border.all(color: colorScheme.secondary),
       ),
       child: Text(
         role,
         style: TextStyle(
-          color: colorScheme.primary,
+          color: colorScheme.secondary,
           fontSize: 11,
           fontWeight: FontWeight.bold,
         ),

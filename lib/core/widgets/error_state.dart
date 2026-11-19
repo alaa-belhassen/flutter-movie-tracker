@@ -36,9 +36,13 @@ class ErrorState extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 64, color: colorScheme.primary),
+            Icon(icon, size: 64, color: colorScheme.secondary),
             const SizedBox(height: 16),
-            Text(message, textAlign: TextAlign.center, style: textTheme.bodyLarge),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: textTheme.bodyLarge,
+            ),
             const SizedBox(height: 16),
             FilledButton(onPressed: onRetry, child: const Text('Retry')),
           ],

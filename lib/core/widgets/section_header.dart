@@ -26,7 +26,10 @@ class SectionHeader extends StatelessWidget {
             onPressed: onActionTap,
             child: Text(
               actionText,
-              style: TextStyle(color: colorScheme.primary, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                color: colorScheme.secondary,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
       ],

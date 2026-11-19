@@ -304,7 +304,7 @@ class _SharedListPageState extends ConsumerState<SharedListPage> {
                       list.isShared
                           ? Icons.group_outlined
                           : Icons.movie_outlined,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                     const SizedBox(width: 12),
                     Expanded(
